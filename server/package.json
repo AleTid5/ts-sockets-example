@@ -1,5 +1,5 @@
 {
-  "name": "server",
+  "name": "ts-sockets-server",
   "version": "1.0.0",
   "description": "",
   "main": "build/app.js",
