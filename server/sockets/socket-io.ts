@@ -1,5 +1,5 @@
-import { Socket } from "net";
 import { Server } from "http";
+import Socket from "../interfaces/socket.interface";
 
 const socketBuilder = (server: Server): Socket =>
   require("socket.io")(server, {

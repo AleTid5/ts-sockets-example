@@ -1,5 +1,5 @@
-import SocketIo from "../../../models/socket-io.model";
-import { Socket } from "net";
+import Socket from "../../../interfaces/socket.interface";
+import SocketIo from "../../socket-io";
 
 const onMessage = (socket: Socket): void => {
   socket.on("message", (data) => {

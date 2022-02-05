@@ -1,26 +1,10 @@
-import { Socket } from "net";
-import onDisconnect from "../disconnect/disconnect.event";
-import onMessage from "../message/message.event";
-import SocketIo from "../../../models/socket-io.model";
+import SocketIo from "../../socket-io";
+import Socket from "../../../interfaces/socket.interface";
 
-const emitEvent = (socket: Socket) => {
-  const response = new Date();
-  socket.emit("from-api", response);
-};
-
-const onConnection = (): void => {
+const onConnection = (callback: Function): void => {
   SocketIo.getSocket().on("connection", (socket: Socket) => {
-    console.log("New client connected");
-
-    const interval = setInterval(() => emitEvent(socket), 1000);
-
-    onMessage(socket);
-
-    onDisconnect(socket).then(() => {
-      console.log("Client disconnected");
-      clearInterval(interval);
-    });
+    console.log(`Socket connection established: ${socket.id}`);
+    callback(socket);
   });
 };
-
 export default onConnection;

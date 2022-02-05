@@ -1,4 +1,4 @@
-import { Socket } from "net";
+import Socket from "../../../interfaces/socket.interface";
 
 const onDisconnect = (socket: Socket): Promise<void> =>
   new Promise((res) => {
